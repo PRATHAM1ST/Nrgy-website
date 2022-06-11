@@ -225,3 +225,7 @@ window.addEventListener('scroll', ()=>{
 
 
 })
+
+$('.slicknav_menu ul li a').click(function(){
+  $('.slicknav_btn').click();
+})
