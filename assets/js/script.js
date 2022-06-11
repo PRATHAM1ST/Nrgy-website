@@ -29,6 +29,7 @@ $(function () {
     $(this).toggleClass('act');
       if($(this).hasClass('act')) {
         $('.slicknav_menu').addClass('act');
+        navElem('.slicknav_menu ul li')
       }
       else {
         $('.slicknav_menu').removeClass('act');
@@ -203,9 +204,18 @@ if($('#map').length >0 ) {
 }
 
 const sections = document.querySelectorAll('section');
-const navli = document.querySelectorAll('#nav-elements li');
 
 window.addEventListener('scroll', ()=>{
+  navElem('#nav-elements li');
+})
+
+
+$('.slicknav_menu ul li a').click(function(){
+  $('.slicknav_btn').click();
+})
+
+function navElem(part){
+  let navli = document.querySelectorAll(part);
   let current = '';
   
   sections.forEach(element => {
@@ -222,10 +232,4 @@ window.addEventListener('scroll', ()=>{
       li.classList.add('active');
     }
   });
-
-
-})
-
-$('.slicknav_menu ul li a').click(function(){
-  $('.slicknav_btn').click();
-})
+}
